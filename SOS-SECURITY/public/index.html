@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SaveMe</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================================================= -->
+<!-- AUTH SCREEN -->
+<!-- ================================================= -->
+
+<section
+    id="authScreen"
+    class="screen"
+>
+
+
+    <div class="auth-card">
+
+
+        <div class="logo">
+            SaveMe
+        </div>
+
+
+        <p class="tagline">
+            Your personal safety network
+        </p>
+
+
+        <!-- LOGIN -->
+
+        <div id="loginForm">
+
+            <h1>
+                Welcome Back
+            </h1>
+
+            <p>
+                Login to your SaveMe account.
+            </p>
+
+
+            <input
+                id="loginEmail"
+                type="email"
+                placeholder="Email address"
+            >
+
+
+            <input
+                id="loginPassword"
+                type="password"
+                placeholder="Password"
+            >
+
+
+            <button
+                id="loginButton"
+                class="primary-button"
+            >
+                Login
+            </button>
+
+
+            <button
+                id="showRegisterButton"
+                class="text-button"
+            >
+                Create a SaveMe account
+            </button>
+
+        </div>
+
+
+        <!-- REGISTER -->
+
+        <div
+            id="registerForm"
+            class="hidden"
+        >
+
+            <h1>
+                Create Account
+            </h1>
+
+            <p>
+                Join the SaveMe safety network.
+            </p>
+
+
+            <input
+                id="registerName"
+                type="text"
+                placeholder="Full name"
+            >
+
+
+            <input
+                id="registerPhone"
+                type="tel"
+                placeholder="Phone number"
+            >
+
+
+            <input
+                id="registerEmail"
+                type="email"
+                placeholder="Email address"
+            >
+
+
+            <input
+                id="registerPassword"
+                type="password"
+                placeholder="Password"
+            >
+
+
+            <button
+                id="registerButton"
+                class="primary-button"
+            >
+                Create Account
+            </button>
+
+
+            <button
+                id="showLoginButton"
+                class="text-button"
+            >
+                Already have an account? Login
+            </button>
+
+        </div>
+
+
+        <p
+            id="authMessage"
+            class="message"
+        ></p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- MAIN APP -->
+<!-- ================================================= -->
+
+<section
+    id="appScreen"
+    class="hidden"
+>
+
+
+    <!-- TOP BAR -->
+
+    <header class="top-bar">
+
+        <div>
+
+            <strong>
+                SaveMe
+            </strong>
+
+            <span id="userNameTop">
+                User
+            </span>
+
+        </div>
+
+
+        <button
+            id="logoutButton"
+            class="small-button"
+        >
+            Logout
+        </button>
+
+    </header>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- HOME -->
+
+        <section
+            id="homeSection"
+            class="app-section"
+        >
+
+            <h1>
+                Are you safe?
+            </h1>
+
+            <p class="subtitle">
+                Hold the button for 10 seconds to activate SaveMe.
+            </p>
+
+
+            <div class="sos-container">
+
+                <button
+                    id="sosButton"
+                    class="sos-button"
+                >
+
+                    <span>
+                        SOS
+                    </span>
+
+                    <small>
+                        HOLD 10 SEC
+                    </small>
+
+                </button>
+
+            </div>
+
+
+            <p
+                id="sosCountdown"
+                class="countdown"
+            >
+                SaveMe is ready
+            </p>
+
+
+            <!-- LOCATION -->
+
+            <div class="information-card">
+
+                <strong>
+                    📍 Location
+                </strong>
+
+                <span id="locationText">
+                    Getting location...
+                </span>
+
+            </div>
+
+
+            <!-- BATTERY -->
+
+            <div class="information-card">
+
+                <strong>
+                    🔋 Battery
+                </strong>
+
+                <span id="batteryText">
+                    Checking battery...
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- TRUSTED PEOPLE -->
+        <!-- ================================================= -->
+
+        <section
+            id="peopleSection"
+            class="app-section hidden"
+        >
+
+            <h2>
+                Trusted People
+            </h2>
+
+            <p class="subtitle">
+                People who can receive your emergency alerts.
+            </p>
+
+
+            <div class="add-person-card">
+
+                <h3>
+                    Add Family or Friend
+                </h3>
+
+                <p>
+                    Enter their SaveMe email address.
+                </p>
+
+
+                <input
+                    id="friendEmail"
+                    type="email"
+                    placeholder="friend@example.com"
+                >
+
+
+                <button
+                    id="sendRequestButton"
+                    class="primary-button"
+                >
+                    Send Connection Request
+                </button>
+
+
+                <p
+                    id="connectionMessage"
+                    class="message"
+                ></p>
+
+            </div>
+
+
+            <h3 class="section-title">
+                My Trusted People
+            </h3>
+
+
+            <div id="trustedPeopleList">
+
+                <p class="empty">
+                    You have no trusted people yet.
+                </p>
+
+            </div>
+
+
+            <h3 class="section-title">
+                Incoming Requests
+            </h3>
+
+
+            <div id="requestsList">
+
+                <p class="empty">
+                    No pending requests.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PROFILE -->
+        <!-- ================================================= -->
+
+        <section
+            id="profileSection"
+            class="app-section hidden"
+        >
+
+            <h2>
+                My Profile
+            </h2>
+
+
+            <div class="profile-card">
+
+                <div class="profile-row">
+
+                    <strong>
+                        Name
+                    </strong>
+
+                    <span id="profileName">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <strong>
+                        Email
+                    </strong>
+
+                    <span id="profileEmail">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <strong>
+                        Phone
+                    </strong>
+
+                    <span id="profilePhone">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <strong>
+                        SaveMe ID
+                    </strong>
+
+                    <span
+                        id="profileId"
+                        class="small-text"
+                    >
+                        -
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- ALERTS -->
+        <!-- ================================================= -->
+
+        <section
+            id="alertsSection"
+            class="app-section hidden"
+        >
+
+            <h2>
+                Emergency Alerts
+            </h2>
+
+
+            <div id="alertsList">
+
+                <p class="empty">
+                    No emergency alerts.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================================================= -->
+    <!-- BOTTOM NAV -->
+    <!-- ================================================= -->
+
+    <nav class="bottom-navigation">
+
+
+        <button
+            id="homeNav"
+            class="nav-button active"
+        >
+            🏠
+            <span>
+                Home
+            </span>
+        </button>
+
+
+        <button
+            id="peopleNav"
+            class="nav-button"
+        >
+            👥
+            <span>
+                People
+            </span>
+        </button>
+
+
+        <button
+            id="alertsNav"
+            class="nav-button"
+        >
+            🚨
+            <span>
+                Alerts
+            </span>
+        </button>
+
+
+        <button
+            id="profileNav"
+            class="nav-button"
+        >
+            👤
+            <span>
+                Profile
+            </span>
+        </button>
+
+
+    </nav>
+
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- EMERGENCY OVERLAY -->
+<!-- ================================================= -->
+
+<section
+    id="emergencyOverlay"
+    class="emergency-overlay hidden"
+>
+
+
+    <div class="emergency-card">
+
+        <div class="emergency-icon">
+            🚨
+        </div>
+
+
+        <h1>
+            SAVEME ACTIVE
+        </h1>
+
+
+        <p>
+            Your trusted people are being notified.
+        </p>
+
+
+        <div class="emergency-details">
+
+            <p>
+                <strong>
+                    Location
+                </strong>
+
+                <span id="emergencyLocation">
+                    -
+                </span>
+            </p>
+
+
+            <p>
+                <strong>
+                    Battery
+                </strong>
+
+                <span id="emergencyBattery">
+                    -
+                </span>
+            </p>
+
+
+            <p>
+                <strong>
+                    Time
+                </strong>
+
+                <span id="emergencyTime">
+                    -
+                </span>
+            </p>
+
+        </div>
+
+
+        <button
+            id="cancelEmergencyButton"
+            class="cancel-button"
+        >
+            Cancel Alert
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- TOAST -->
+<!-- ================================================= -->
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+
+<script
+    type="module"
+    src="app.js"
+></script>
+
+
+</body>
+
+</html>
